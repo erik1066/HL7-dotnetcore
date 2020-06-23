@@ -81,6 +81,8 @@ namespace HL7.Dotnetcore
             }
             catch
             {
+                offset = new TimeSpan();
+                
                 if (throwExeption)
                     throw;
 

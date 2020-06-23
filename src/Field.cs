@@ -59,15 +59,18 @@ namespace HL7.Dotnetcore
             }
             else
             {
-                List<string> allComponents = MessageHelper.SplitString(_value, this.Encoding.ComponentDelimiter);
-
                 this.ComponentList = new ComponentCollection();
-
-                foreach (string strComponent in allComponents)
+                
+                if (_value.Contains(this.Encoding.ComponentDelimiter))
                 {
-                    Component component = new Component(this.Encoding);
-                    component.Value = strComponent;
-                    this.ComponentList.Add(component);
+                    List<string> allComponents = MessageHelper.SplitString(_value, this.Encoding.ComponentDelimiter);
+
+                    foreach (string strComponent in allComponents)
+                    {
+                        Component component = new Component(this.Encoding);
+                        component.Value = strComponent;
+                        this.ComponentList.Add(component);
+                    }
                 }
 
                 this.IsComponentized = this.ComponentList.Count > 1;

@@ -57,14 +57,14 @@ namespace HL7.Dotnetcore
         /// Parse the HL7 message in text format, throws HL7Exception if error occurs
         /// </summary>
         /// <returns>boolean</returns>
-        public bool ParseMessage()
+        public bool ParseMessage(bool validate = false)
         {
             bool isValid = false;
             bool isParsed = false;
 
             try
             {
-                isValid = this.validateMessage();
+                isValid = validate ? this.validateMessage() : true;
             }
             catch (HL7Exception ex)
             {
@@ -103,23 +103,26 @@ namespace HL7.Dotnetcore
 
                     string strSerializedMessage = string.Empty;
 
-                    try
+                    if (validate)
                     {
-                        strSerializedMessage = this.SerializeMessage(false); 
-                    }
-                    catch (HL7Exception ex)
-                    {
-                        throw new HL7Exception("Failed to serialize parsed message with error - " + ex.Message, HL7Exception.PARSING_ERROR);
-                    }
+                        try
+                        {
+                            strSerializedMessage = this.SerializeMessage(false); 
+                        }
+                        catch (HL7Exception ex)
+                        {
+                            throw new HL7Exception("Failed to serialize parsed message with error - " + ex.Message, HL7Exception.PARSING_ERROR);
+                        }
 
-                    if (!string.IsNullOrEmpty(strSerializedMessage))
-                    {
-                        if (this.Equals(strSerializedMessage))
-                            isParsed = true;
-                    }
-                    else
-                    {
-                        throw new HL7Exception("Unable to serialize to original message - ", HL7Exception.PARSING_ERROR);
+                        if (!string.IsNullOrEmpty(strSerializedMessage))
+                        {
+                            if (this.Equals(strSerializedMessage))
+                                isParsed = true;
+                        }
+                        else
+                        {
+                            throw new HL7Exception("Unable to serialize to original message - ", HL7Exception.PARSING_ERROR);
+                        }
                     }
                 }
                 catch (Exception ex)

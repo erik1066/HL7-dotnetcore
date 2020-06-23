@@ -30,8 +30,10 @@ namespace HL7.Dotnetcore
             
             if (this.isDelimiter)
                 allSubComponents = new List<string>(new [] {this.Value});
-            else
+            else if (_value.Contains(this.Encoding.SubComponentDelimiter))
                 allSubComponents = MessageHelper.SplitString(_value, this.Encoding.SubComponentDelimiter);
+            else
+                return;
 
             if (allSubComponents.Count > 1)
                 this.IsSubComponentized = true;
