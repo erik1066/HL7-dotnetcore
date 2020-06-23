@@ -4,6 +4,10 @@
     <Copyright>(c) Efferent Health, LLC</Copyright>
     <VersionPrefix>2.18.0</VersionPrefix>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Title>HL7 Utilities</Title>
+    <Owners>eknudsen</Owners>
     <AssemblyName>Kodeistan.Hl7</AssemblyName>
     <PackageId>Kodeistan.Hl7</PackageId>
     <PackageTags>hl7;dotnetcore</PackageTags>

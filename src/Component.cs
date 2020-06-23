@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Kodeistan.HL7.Dotnetcore
 {
@@ -28,15 +29,19 @@ namespace Kodeistan.HL7.Dotnetcore
         {
             List<string> allSubComponents;
             
-            if (this.isDelimiter)
-                allSubComponents = new List<string>(new [] {this.Value});
-            else if (_value.Contains(this.Encoding.SubComponentDelimiter.ToString()))
+            if (_value.Contains(this.Encoding.SubComponentDelimiter))
+            {
                 allSubComponents = MessageHelper.SplitString(_value, this.Encoding.SubComponentDelimiter);
+            }
             else
-                return;
+            {
+                allSubComponents = new List<string>(new [] { this.Value });
+            }
 
             if (allSubComponents.Count > 1)
+            {
                 this.IsSubComponentized = true;
+            }
 
             this.SubComponentList = new List<SubComponent>();
 

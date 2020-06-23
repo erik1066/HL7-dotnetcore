@@ -60,17 +60,22 @@ namespace Kodeistan.HL7.Dotnetcore
             else
             {
                 this.ComponentList = new ComponentCollection();
-                
+                List<string> allComponents = new List<string>();
+
                 if (_value.Contains(this.Encoding.ComponentDelimiter))
                 {
-                    List<string> allComponents = MessageHelper.SplitString(_value, this.Encoding.ComponentDelimiter);
+                    allComponents = MessageHelper.SplitString(_value, this.Encoding.ComponentDelimiter);
+                }
+                else
+                {
+                    allComponents.Add(_value);
+                }
 
-                    foreach (string strComponent in allComponents)
-                    {
-                        Component component = new Component(this.Encoding);
-                        component.Value = strComponent;
-                        this.ComponentList.Add(component);
-                    }
+                foreach (string strComponent in allComponents)
+                {
+                    Component component = new Component(this.Encoding);
+                    component.Value = strComponent;
+                    this.ComponentList.Add(component);
                 }
 
                 this.IsComponentized = this.ComponentList.Count > 1;
