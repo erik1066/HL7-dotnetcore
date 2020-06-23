@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace HL7.Dotnetcore
+namespace Kodeistan.HL7.Dotnetcore
 {
     public class Message
     {

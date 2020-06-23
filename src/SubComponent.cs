@@ -1,4 +1,4 @@
-﻿namespace HL7.Dotnetcore
+﻿namespace Kodeistan.HL7.Dotnetcore
 {
     public class SubComponent : MessageElement
     {

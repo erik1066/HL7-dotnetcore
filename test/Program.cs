@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace HL7.Dotnetcore.Test
+namespace Kodeistan.HL7.Dotnetcore.Test
 {
     [TestClass]
     public class HL7Test

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HL7.Dotnetcore
+namespace Kodeistan.HL7.Dotnetcore
 {
     public class Field : MessageElement
     {

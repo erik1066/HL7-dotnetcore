@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace HL7.Dotnetcore
+namespace Kodeistan.HL7.Dotnetcore
 {
     public class Component : MessageElement
     {
@@ -30,7 +30,7 @@ namespace HL7.Dotnetcore
             
             if (this.isDelimiter)
                 allSubComponents = new List<string>(new [] {this.Value});
-            else if (_value.Contains(this.Encoding.SubComponentDelimiter))
+            else if (_value.Contains(this.Encoding.SubComponentDelimiter.ToString()))
                 allSubComponents = MessageHelper.SplitString(_value, this.Encoding.SubComponentDelimiter);
             else
                 return;

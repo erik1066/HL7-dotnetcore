@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace HL7.Dotnetcore
+namespace Kodeistan.HL7.Dotnetcore
 {
     public class HL7Exception : Exception
     {

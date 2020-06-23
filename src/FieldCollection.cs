@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace HL7.Dotnetcore
+namespace Kodeistan.HL7.Dotnetcore
 {
     internal class FieldCollection : List<Field>
     {
