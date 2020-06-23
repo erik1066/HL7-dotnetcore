@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Description>Lightweight HL7 2.x library compatible with .Net Standard and .Net Core</Description>
     <Copyright>(c) Efferent Health, LLC</Copyright>
-    <VersionPrefix>2.18.0</VersionPrefix>
+    <VersionPrefix>2.18.1</VersionPrefix>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <NeutralLanguage>en-US</NeutralLanguage>
